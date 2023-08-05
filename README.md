@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 anybody has access to news .
 
 only signed in users have access
@@ -16,6 +17,19 @@ run:
 #### 2-json-server --watch ./src/fakeAPI/news.json --port 3005
 #### 3-npm start
 styling using tailwind
+=======
+anybody has access to news <br/>
+only signed in users have access to digital coin news (therefore we have a navigate to sign up comp)<br/>
+Home in navifation bar for <br/>
+1-admin : list of users(with serachbar)<br/>
+2-else(signed in or not users) is another comp <br/>
+i have used json-server package for handelling backend<br/>
+run:<br/>
+1-json-server --watch ./src/fakeAPI/users.json --port 3003<br/>
+2-json-server --watch ./src/fakeAPI/news.json --port 3005<br/>
+3-npm start<br/>
+styling using tailwind<br/>
+>>>>>>> 7937827 (rd me)
 
 
 # Getting Started with Create React App
