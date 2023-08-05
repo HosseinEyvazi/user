@@ -1,13 +1,20 @@
-anybody has access to news
-only signed in users have access to digital coin news (therefore we have a navigate to sign up comp)
-Home in navifation bar for 
+anybody has access to news .
+
+only signed in users have access
+to digital coin news (therefore we have a navigate to sign up comp) .
+
+Home in navigation bar for :
+
 1-admin : list of users(with serachbar)
+
 2-else(signed in or not users) is another comp 
+
 i have used json-server package for handelling backend
 run:
-1-json-server --watch ./src/fakeAPI/users.json --port 3003
-2-json-server --watch ./src/fakeAPI/news.json --port 3005
-3-npm start
+
+#### 1-json-server --watch ./src/fakeAPI/users.json --port 3003
+#### 2-json-server --watch ./src/fakeAPI/news.json --port 3005
+#### 3-npm start
 styling using tailwind
 
 
