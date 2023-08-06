@@ -49,6 +49,7 @@ const Login = (props) => {
               id="password"
               type="password"
               ref={passRef}
+              value={passState}
               className="rounded-md"
               onChange={(e) => setPass(e.target.value)} // Uncomment this line
             />

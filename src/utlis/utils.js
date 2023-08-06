@@ -18,7 +18,4 @@ function persianToEnglishNumber(persianNumber) {
 }
 
 
-  console.log(convertPersianToEnglishNumber("۸۹۴۶۵۴۶"));
-  
-  
-  export default convertPersianToEnglishNumber;
+  export default persianToEnglishNumber;
