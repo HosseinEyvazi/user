@@ -1,6 +1,6 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
-const User = ({avatar ,sex , city , date , national_id , military , family , name }) => {
+const UserItem = ({avatar ,sex , city , date , national_id , military , family , name }) => {
   return (
     <div>
       <div
@@ -30,4 +30,4 @@ const User = ({avatar ,sex , city , date , national_id , military , family , nam
   );
 };
 
-export default User;
+export default UserItem;

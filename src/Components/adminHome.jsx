@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import User from "./user";
+import UserItem from "./userItem";
 
 const AdminHome = () => {
   const [usersState, setUsers] = useState([]);
@@ -69,17 +69,28 @@ const AdminHome = () => {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="border p-2 mt-2 rounded-md w-1/6"
           placeholder="جستجو بر اساس نام و نام خانوادگی"
-          
         />
       </div>
 
-      {usersState.length === 0 ? (
-        skeletonLoading()
-      ) : (
-        filteredUsers.map((oneUsers, index) => (
-          <User key={index} sex={oneUsers.sex} city={oneUsers.city} date={oneUsers.date} national_id={oneUsers.national_id} military={oneUsers.military} family={oneUsers.family} name={oneUsers.name} avatar={oneUsers.avatar}/>
-        ))
-      )}
+      {usersState.length === 0
+        ? skeletonLoading()
+        : filteredUsers.map((oneUsers, index) => (
+            <div className="p-2 flex justify-center ">
+              <div className=" flex justify-center">
+                <UserItem
+                  key={index}
+                  sex={oneUsers.sex}
+                  city={oneUsers.city}
+                  date={oneUsers.date}
+                  national_id={oneUsers.national_id}
+                  military={oneUsers.military}
+                  family={oneUsers.family}
+                  name={oneUsers.name}
+                  avatar={oneUsers.avatar}
+                />
+              </div>
+            </div>
+          ))}
     </>
   );
 };
