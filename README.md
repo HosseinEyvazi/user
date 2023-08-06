@@ -7,7 +7,7 @@ to digital coin news (therefore we have a navigate to sign up comp) .
 Home in navigation bar for :
 
 1-admin : list of users(with serachbar)
-
+* nimbda122 = user = pass   is admin
 2-else(signed in or not users) is another comp 
 
 i have used json-server package for handelling backend
