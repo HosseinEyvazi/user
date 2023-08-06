@@ -87,7 +87,7 @@ function App() {
           <Route path="/news" exact element={<News />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter >
     </div>
   );
 

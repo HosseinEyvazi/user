@@ -70,14 +70,14 @@ const SignUp = (props) => {
     name: yup.string().strict().required("فیلد نام الزامی است!"),
 
     family: yup
-      .string()
-      .strict("نام خانوادگی و فاقد عدد")
+      .string("نام خانوادگی و فاقد عدد")
+      .strict(true)
       .required("نام خانوادگی الزامی است"),
 
-    // nationalId: yup
-    //   .number(" !کد ملی را به درستی وارد کنید"),
-    //   .required("کد ملی الزامی است"),
-
+    nationalId: yup
+      .string()
+      .matches(/^[0-9]{10}$/, " نمیتواند شامل حروف باشد")
+      .required("کد ملی الزامی است"),
     city: yup.string(),
 
     military: yup.string().required("وضعیت سربازی الزامی است"),
@@ -240,9 +240,7 @@ const SignUp = (props) => {
           {errsState.length !== 0 ? (
             errsState.map((err) => <p className="text-red-500">{err}</p>)
           ) : (
-            <div>
-              
-            </div>
+            <div></div>
           )}
         </form>
       </div>
@@ -260,33 +258,35 @@ const SignUp = (props) => {
         .reduce((acc, x, i) => acc + +x * (10 - i), 0) % 11;
     return sum < 2 ? check === sum : check + sum === 11;
   }
-
   function validation() {
-  let tempErr = []; // this will be all yup errs + national id validation
-  validationSchema
-    .validate(fieldsState, { abortEarly: false })
-    .then(() => {
-      tempErr = [];
-      if (fieldsState.nationalId.length === 0) {
-        tempErr.push("کد ملی الزامی است!");
-      } else if (!isValidIranianNationalCode(fieldsState.nationalId)) {
-        tempErr.push("کد ملی صحیح نیست!");
-      }
-      if (fieldsState.sex.length === 0) {
-        tempErr.push("جنسیت را وارد کنید");
-      } else if (
-        fieldsState.sex === "Male" &&
-        fieldsState.military.length === 0
-      ) {
-        tempErr.push("وضعیت سربازی را وارد کنید !");
-      }
+    let tempErr = []; // this will be all yup errs + national id validation
+    validationSchema
+      .validate(fieldsState, { abortEarly: false })
+      .then(() => {
+        // No errors, so reset the tempErr
+        tempErr = [];
+        setErrs([]);
+      })
+      .catch((errs) => {
+        tempErr = [];
+        if (fieldsState.nationalId.length === 0) {
+          tempErr.push("کد ملی الزامی است!");
+        } else if (!isValidIranianNationalCode(fieldsState.nationalId)) {
+          tempErr.push("کد ملی صحیح نیست!");
+        }
+        if (fieldsState.sex.length === 0) {
+          tempErr.push("جنسیت را وارد کنید");
+        } else if (
+          fieldsState.sex === "Male" &&
+          fieldsState.military.length === 0
+        ) {
+          tempErr.push("وضعیت سربازی را وارد کنید !");
+        }
 
-      setErrs(tempErr); // Using the callback function to update the state
-    })
-    .catch((errs) => {
-      setErrs(errs.errors); // Using the callback function to update the state
-    });
-}
+        // Use errs.errors directly, as it's an array
+        setErrs([...tempErr, ...errs.errors]);
+      });
+  }
 
   //all handlers
   function handleEmailInput(e) {
