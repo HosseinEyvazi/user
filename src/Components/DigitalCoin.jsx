@@ -10,10 +10,10 @@ const DigitalCoin = () => {
           this is digital coin . page available only for sigend in users or
           admin . a user that not signed in will navigate to login page
         </h2>
+
+        
       </div>
-      {setTimeout(() => {
-        navigate("/login");
-      }, 4000)}
+      
     </>
   );
 };

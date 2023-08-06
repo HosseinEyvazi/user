@@ -1,4 +1,5 @@
 import "./App.css";
+
 import DigitalCoin from "./Components/DigitalCoin";
 import Home from "./Components/Home";
 import Logout from "./Components/Logout";
@@ -20,10 +21,18 @@ import ProtectedHome from "./Components/AdminProtected";
 import AdminHome from "./Components/adminHome";
 import SignedInProtected from "./Components/protectedSignIn";
 
+
+
+
 function App() {
   const [isAdminState, setIsAdmin] = useState(false);
   const [isSignedInState, setIsSignedIn] = useState(false);
-  //const history = useHistory();
+  
+
+
+
+
+
   function signInAdmin() {
     setIsAdmin(true);
   }
@@ -119,7 +128,9 @@ function App() {
               }}
             >
               <img src="/icons/user.png" alt="x" className="w-5 h-5 ml-2 " />
-              <p>خروج از حساب کاربری</p>
+              <div className="flex flex-col">
+                <p>خروج از حساب کاربری</p>
+                </div>
             </NavLink>
           )}
           <NavLink 
