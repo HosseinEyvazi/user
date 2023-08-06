@@ -11,9 +11,7 @@ const Login = (props) => {
   let nationalRef = useRef();
   let passRef = useRef();
 
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -59,7 +57,12 @@ const Login = (props) => {
               ورود
             </button>
             {signErrState === true ? (
-              <h1 style={{ whiteSpace: "nowrap" }} className=" mt-5 text-red-600">کد ملی یا رمز اشتباه است</h1>
+              <h1
+                style={{ whiteSpace: "nowrap" }}
+                className=" mt-5 text-red-600"
+              >
+                کد ملی یا رمز اشتباه است
+              </h1>
             ) : (
               <></>
             )}
@@ -70,42 +73,45 @@ const Login = (props) => {
   );
 
   function handleLoginButton() {
-    //! this should handle on server side . any way ...
     axios
-    .get(process.env.REACT_APP_GET_USERS_URL)
-    .then((resp) => {
-      setUsers(resp.data);
-      console.log(resp.data);
-    })
-    .catch((err) => {
-      console.log(err);
-      setSignErr(true);
-    });
+      .get(process.env.REACT_APP_GET_USERS_URL)
+      .then((resp) => {
+        setUsers(resp.data);
+        console.log(resp.data);
 
+        const filteredUser = resp.data.filter((user) => {
+          console.log("user.national_id" + user.national_id);
+          console.log("nationalRef.current.value" + nationalRef.current.value);
+          return user.national_id === nationalRef.current.value;
+        });
 
+        if (
+          filteredUser.length > 0 &&
+          filteredUser[0] &&
+          filteredUser[0].password === passRef.current.value
+        ) {
+          console.log("if statement is true xxxx");
 
-    const filteredUser = users.filter((user) => {
-      console.log("user.national_id" + user.national_id);
-      console.log("nationalRef.current.value" + nationalRef.current.value);
-      return user.national_id == nationalRef.current.value; //==
-    });
+          if (
+            filteredUser[0].national_id ===
+            process.env.REACT_APP_ADMIN_NATIONAL_ID
+          ) {
+            props.onSignInAdmin();
+          } else {
+            props.onSignIn();
+          }
 
-    if (
-      filteredUser.length > 0 &&
-      filteredUser[0] &&
-      filteredUser[0].password == passRef.current.value
-    ) {
-      console.log("if statement is true xxxx");
-
-      if (
-        filteredUser[0].national_id == process.env.REACT_APP_ADMIN_NATIONAL_ID
-      ) {
-        props.onSignInAdmin();
-      } else props.onSignIn();
-      setTimeout(() => {
-        navigate("/home");
-      }, 1000);
-    } //else setSignErr(true);
+          setTimeout(() => {
+            navigate("/home");
+          }, 1000);
+        } else {
+          setSignErr(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setSignErr(true);
+      });
   }
 };
 
