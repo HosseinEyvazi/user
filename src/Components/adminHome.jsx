@@ -82,7 +82,7 @@ const AdminHome = () => {
           >
             <img
               src={oneUsers.avatar}
-              alt="reload page"
+              alt="عکس ندارد"
               width={130}
               height={130}
               className="outline-blue-100  mr-8 rounded-3xl border-blue-200 border-2 shadow-black shadow-lg"

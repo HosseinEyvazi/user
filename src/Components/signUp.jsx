@@ -67,13 +67,17 @@ const SignUp = (props) => {
       .string()
       .required("فیلد ایمیل الزامی است!")
       .email("ایمیل را بدرستی وارد کنید"),
-      name: yup.string().strict().matches(/^[^0-9]*$/, "فیلد نام نباید شامل اعداد باشد!").required("فیلد نام الزامی است!"),
-
+    name: yup
+      .string()
+      .strict()
+      .matches(/^[^0-9]*$/, "فیلد نام نباید شامل اعداد باشد!")
+      .required("فیلد نام الزامی است!"),
 
     family: yup
-      .string("نام خانوادگی و فاقد عدد")
+      .string()
       .strict(true)
-      .required("نام خانوادگی الزامی است"),
+      .matches(/^[^0-9]*$/, "فیلد نام نباید شامل اعداد باشد!")
+      .required("فیلد نام الزامی است!"),
 
     nationalId: yup
       .string()

@@ -12,16 +12,7 @@ const Login = (props) => {
   let passRef = useRef();
 
   useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_GET_USERS_URL)
-      .then((resp) => {
-        setUsers(resp.data);
-        console.log(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        setSignErr(true);
-      });
+    
   }, []);
 
   return (
@@ -80,6 +71,19 @@ const Login = (props) => {
 
   function handleLoginButton() {
     //! this should handle on server side . any way ...
+    axios
+    .get(process.env.REACT_APP_GET_USERS_URL)
+    .then((resp) => {
+      setUsers(resp.data);
+      console.log(resp.data);
+    })
+    .catch((err) => {
+      console.log(err);
+      setSignErr(true);
+    });
+
+
+
     const filteredUser = users.filter((user) => {
       console.log("user.national_id" + user.national_id);
       console.log("nationalRef.current.value" + nationalRef.current.value);
@@ -101,7 +105,7 @@ const Login = (props) => {
       setTimeout(() => {
         navigate("/home");
       }, 1000);
-    } else setSignErr(true);
+    } //else setSignErr(true);
   }
 };
 
