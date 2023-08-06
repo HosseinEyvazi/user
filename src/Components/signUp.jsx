@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 //import { Link, useHistory } from "react-router-dom"; // Import useHistory directly from react-router-dom
 import { ltr } from "semver";
+
 import * as yup from "yup";
 import ImageUploader from "./imageUploader";
 import axios from "axios";
@@ -138,9 +139,11 @@ const SignUp = (props) => {
           />
 
           <label htmlFor="city">شهر</label>
-          <Combo inputHandler={handleCityInput} items={iranProvinces}>
+          
+<Combo inputHandler={handleCityInput} items={iranProvinces}>
             ...
           </Combo>
+
           <label htmlFor="email">ایمیل</label>
           <input
             onChange={(e) => handleEmailInput(e)}
