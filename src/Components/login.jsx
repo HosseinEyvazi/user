@@ -80,7 +80,7 @@ const Login = (props) => {
         console.log(resp.data);
 
         const filteredUser = resp.data.filter((user) => {
-          console.log("user.national_id" + user.national_id);
+          console.log("user.national_id" + user);
           console.log("nationalRef.current.value" + nationalRef.current.value);
           return user.national_id === nationalRef.current.value;
         });
