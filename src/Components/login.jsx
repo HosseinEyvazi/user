@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useRef, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import persianToEnglishNumber from "../utlis/utils";
 
 const Login = (props) => {
   const [users, setUsers] = useState([]);
@@ -11,7 +12,6 @@ const Login = (props) => {
   let nationalRef = useRef();
   let passRef = useRef();
 
-  useEffect(() => {}, []);
 
   return (
     <>
@@ -26,22 +26,28 @@ const Login = (props) => {
             <label
               style={{ whiteSpace: "nowrap" }}
               htmlFor="national_id "
-              className="w-"
+              // className="w-"
             >
               کد ملی
             </label>
             <input
+              dir="ltr"
               id="national_id"
               type="text"
               ref={nationalRef}
               className="rounded-md"
-              onChange={(e) => setNationalId(e.target.value)} // Uncomment this line
+              onChange={(e) =>
+                {setNationalId(persianToEnglishNumber(e.target.value))
+                console.log(persianToEnglishNumber(e.target.value));
+                }
+              } // Uncomment this line
             />
 
             <label htmlFor="password">رمز</label>
             <input
+            
               id="password"
-              type="text"
+              type="password"
               ref={passRef}
               className="rounded-md"
               onChange={(e) => setPass(e.target.value)} // Uncomment this line
@@ -82,13 +88,13 @@ const Login = (props) => {
         const filteredUser = resp.data.filter((user) => {
           console.log("user.national_id" + user);
           console.log("nationalRef.current.value" + nationalRef.current.value);
-          return user.national_id === nationalRef.current.value;
+          return user.national_id === nationalIdState
         });
 
         if (
           filteredUser.length > 0 &&
           filteredUser[0] &&
-          filteredUser[0].password === passRef.current.value
+          filteredUser[0].password === passState
         ) {
           console.log("if statement is true xxxx");
 

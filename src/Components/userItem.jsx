@@ -1,4 +1,4 @@
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
 
 const UserItem = ({avatar ,sex , city , date , national_id , military , family , name }) => {
   return (
