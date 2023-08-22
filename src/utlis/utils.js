@@ -18,4 +18,5 @@ function persianToEnglishNumber(persianNumber) {
 }
 
 
-  export default persianToEnglishNumber;
+
+  export default persianToEnglishNumber ;

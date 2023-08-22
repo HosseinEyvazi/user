@@ -1,13 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import themeContext from "../themeContext/themeContext";
 const News = () => {
   const [newsState, setNews] = useState([]);
   //console.log("XX"+newsState==true);
+  const theme = useContext(themeContext).currentThemeState
+
   useEffect(() => {
+    console.log(theme);
     setTimeout(() => {
+      
       // Because it doesnt take time to load data from fake API(fake API is a package)
       axios
         .get(process.env.REACT_APP_GET_NEWS_URL)
@@ -26,9 +31,9 @@ const News = () => {
     return (
       <>
         {tempArr.map((val, index) => (
-          <div className=" animate-ease-in flex bg-gray-200 p-3 mt-3 flex-row items-center rounded-3xl mr-3">
-            <SkeletonTheme key={index}  highlightColor="#708090"> 
-              <Skeleton style={{borderRadius : 24}} height={130} width={130} className="border-blue-100 border-2 outline-blue-100 shadow-black shadow-lg rounded-3xl mr-4" />
+          <div className=" animate-ease-in flex p-3 mt-3 flex-row items-center rounded-3xl mr-3"                    >
+            <SkeletonTheme key={index}  highlightColor={colorOfSklBackG(theme)}> 
+              <Skeleton style={{borderRadius : 24 }} height={130} width={130} className="border-blue-100 border-2 outline-blue-100 shadow-black shadow-lg rounded-3xl mr-4 " />
               <div className=" flex-col w-full ">
                 
                 <Skeleton height={220} style={{borderRadius : 24 }} className=" mb-4  mr-4 rounded-3xl  outline-blue-100 shadow-black shadow-lg border-blue-100 border-2"  />
@@ -64,6 +69,12 @@ const News = () => {
           ))}
     </>
   );
+
+  function colorOfSklBackG(theme) {
+    
+    return theme === "dark" ? "black" : "gray";
+  }
+  
 };
 
 export default News;
