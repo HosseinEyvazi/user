@@ -2,7 +2,7 @@
 
 const UserItem = ({avatar ,sex , city , date , national_id , military , family , name }) => {
   return (
-    <div>
+    <div className="rounded-3xl">
       <div
         className="p-3 flex flex-row items-center bg-gray-100 rounded-3xl m-2"
         

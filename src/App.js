@@ -47,7 +47,16 @@ function App() {
 
   return (
     <themeContext.Provider value={{currentThemeState , setCurrentTheme}}>
-      <div className="bg-gray-50" id={currentThemeState} >
+      <div className="bg-gray-50 " id={currentThemeState} >
+      <button
+            className="z-10 absolute top-0 left-0 m-4 bg-transparent border border-gray-500 px-3 py-1 rounded text-sm"
+            onClick={handleToggle}
+          >
+            Toggle Theme
+          </button>
+
+
+
         <BrowserRouter>
           {nav()}
           <Outlet />
@@ -106,8 +115,8 @@ function App() {
 
   function nav() {
     return (
-      <div >
-        <nav className=" flex flex-row  border-b-2 border-solid    animate-fade-left " >
+      <>
+        <nav className="flex flex-row  border-b-2 border-solid  animate-fade-left " >
           {/* //handle logout , login btn in nav */}
           {!isSignedInState && !isAdminState ? (
             <NavLink
@@ -132,7 +141,7 @@ function App() {
               }}
             >
               <img src="/icons/user.png" alt="x" className="w-5 h-5 ml-2 " />
-              <div className="flex flex-col">
+              <div className="flex flex-col " style={{background:"transparent"}}>
                 <p>خروج از حساب کاربری</p>
               </div>
             </NavLink>
@@ -166,7 +175,7 @@ function App() {
             <p>اخبار </p>
           </NavLink>
         </nav>
-      </div>
+      </>
     );
   }
 }

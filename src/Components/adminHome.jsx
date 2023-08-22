@@ -40,11 +40,11 @@ const AdminHome = () => {
                 width={130}
                 className="border-blue-100 border-2 outline-blue-100 shadow-black shadow-lg rounded-3xl mr-4"
               />
-              <div className="flex-col w-full">
+              <div className="flex-col w-full" >
                 <Skeleton
                   height={220}
-                  style={{ borderRadius: 24 }}
-                  className="mb-4 mr-4 rounded-3xl outline-blue-100 shadow-black shadow-lg border-blue-100 border-2"
+                  style={{ borderRadius: 24  }}
+                  className="mb-4 mr-4 rounded-3xl outline-blue-100 shadow-black shadow-lg border-blue-100 border-2 "
                 />
               </div>
             </SkeletonTheme>
@@ -61,7 +61,7 @@ const AdminHome = () => {
 
   return (
     <>
-      <div className="m-4">
+      <div className="m-4 "style={{background:"transparent"}} >
         <h2 className="font-extrabold">خانه</h2>
         <input
           type="text"
@@ -75,8 +75,8 @@ const AdminHome = () => {
       {usersState.length === 0
         ? skeletonLoading()
         : filteredUsers.map((oneUsers, index) => (
-            <div className="p-2 flex justify-center ">
-              <div className=" flex justify-center">
+            <div className="p-2 flex justify-center " style={{background:"transparent"}}>
+              <div className=" flex justify-center rounded-sm" style={{background:"transparent"}}>
                 <UserItem
                   key={index}
                   sex={oneUsers.sex}
