@@ -46,13 +46,14 @@ function App() {
   const [currentThemeState , setCurrentTheme] = useState("light");
 
   return (
-    <themeContext.Provider value={{currentThemeState , setCurrentTheme}}>
+     <themeContext.Provider value={{currentThemeState , setCurrentTheme}}>        {/* //* context is used in skeleton loading relative to theme mode */}
+       
       <div className="bg-gray-50 " id={currentThemeState} >
       <button
-            className="z-10 absolute top-0 left-0 m-4 bg-transparent border border-gray-500 px-3 py-1 rounded text-sm"
+            className="z-10 absolute top-0 left-0 m-4 bg-transparent border  px-3 py-1 rounded text-sm border-blue-500 hover:bg-blue-500 "
             onClick={handleToggle}
           >
-            Toggle Theme
+            تغییر تم
           </button>
 
 
