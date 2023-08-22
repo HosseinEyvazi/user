@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRef, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import persianToEnglishNumber from "../utlis/utils";
+import {persianToEnglishNumber} from "../utlis/utils";
 import { ltr } from "semver";
 const Login = (props) => {
   const [users, setUsers] = useState([]);

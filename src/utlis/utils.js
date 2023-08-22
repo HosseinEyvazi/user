@@ -1,5 +1,4 @@
 function persianToEnglishNumber(persianNumber) {
-
   const persianDigits = "۰۱۲۳۴۵۶۷۸۹";
   const englishDigits = "0123456789";
 
@@ -17,6 +16,8 @@ function persianToEnglishNumber(persianNumber) {
   return englishNumber;
 }
 
+const colorOfSklBackG = function (theme) {
+  return theme === "dark" ? "black" : "gray";
+};
 
-
-  export default persianToEnglishNumber ;
+export { persianToEnglishNumber, colorOfSklBackG };

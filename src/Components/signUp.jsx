@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 //import { Link, useHistory } from "react-router-dom"; // Import useHistory directly from react-router-dom
 import { ltr } from "semver";
-import persianToEnglishNumber from "../utlis/utils";
+import {persianToEnglishNumber} from "../utlis/utils";
 import * as yup from "yup";
 import ImageUploader from "./imageUploader";
 import axios from "axios";

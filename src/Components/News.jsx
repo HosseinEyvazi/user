@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-
+import {colorOfSklBackG} from './../utlis/utils'
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import themeContext from "../themeContext/themeContext";
@@ -70,11 +70,6 @@ const News = () => {
     </>
   );
 
-  function colorOfSklBackG(theme) {
-    
-    return theme === "dark" ? "black" : "gray";
-  }
-  
 };
 
 export default News;
