@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+
 anybody has access to news .
 
 only signed in users have access
-to digital coin news (therefore we have a navigate to sign up comp) .
+to digital coin news (therefore we have a navigation to sign up comp) .
 
 Home in navigation bar for :
 
