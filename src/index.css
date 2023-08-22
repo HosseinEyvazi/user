@@ -15,13 +15,55 @@
   src: url(./fonts/Estedad-Light.woff2);
 }
 
+/* DARK */
+#dark div  , nav {
+  color: #121212;
+  background-color: #121212;
+}
+
+#dark p ,link , label{
+  color: #c4c4c4;
+}
+
+#dark h1,
+h2,
+h3 {
+  color: #ffffff;
+}
+#dark{
+  background-color: #2a2a2a;
+}
+
+/* LIGHT */
+
+#light div  , nav {
+  color: #f2f2f2;
+  background-color: #f2f2f2;
+}
+
+#light p ,link , label{
+  color: #333333;
+}
+
+#light h1,
+h2,
+h3 {
+  color: #666666;
+}
+#light{
+  background-color: #ffffff;
+}
+
+
+
+
 nav {
   height: 56px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #3f51b5;
-  box-shadow: 0 5px 10px #ccc;
+  
+  box-shadow: 0 5px 10px black;
 }
 
 /* Basic styles for nav links */
@@ -34,7 +76,6 @@ nav a {
   text-decoration: none;
 }
 
-
 /* Specific styles for non-active links */
 .link {
   color: black;
@@ -43,7 +84,7 @@ nav a {
 /* Specific styles for active links */
 .link-active {
   color: black;
-  background: #ADD8E6;
+  background: #add8e6;
 }
 
 .content {
@@ -51,13 +92,9 @@ nav a {
   text-align: center;
 }
 
-
-
-
 body > #root > div {
   height: 100vh;
 }
-
 
 * {
   font-family: persianFont1;

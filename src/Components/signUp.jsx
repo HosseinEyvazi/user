@@ -242,8 +242,8 @@ const SignUp = (props) => {
           >
             ثبت اطلاعات
           </button>
-          <Link className="text-black  mt-2 underline " to={"/login"}>
-            قبلا عضو شده اید؟{" "}
+          <Link className="  mt-2 underline " to={"/login"}>
+            <p>قبلا عضو شده اید؟{" "}</p>
           </Link>
           {errsState.length !== 0 ? (
             errsState.map((err) => <p className="text-red-500">{err}</p>)

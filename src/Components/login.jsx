@@ -15,7 +15,7 @@ const Login = (props) => {
   let passRef = useRef();
 
   return (
-    <>
+    <div style={{margin:-5}} className="min-h-screen " >
       <h2 className="m-4 font-extrabold ">صفحه ورود</h2>
 
       <div className="flex flex-col items-center justify-center  h-full">
@@ -66,7 +66,7 @@ const Login = (props) => {
                 ورود
               </button>
             ) : (
-              <div className="mt-8" role="status">
+              <div className="mt-8 bg-white" role="status">
                 <svg
                   aria-hidden="true"
                   class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
@@ -100,7 +100,7 @@ const Login = (props) => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 
   function handleLoginButton() {

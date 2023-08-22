@@ -54,7 +54,7 @@ const News = () => {
                 key={index}
                 className=" p-6 bg-gray-100  shadow-black shadow-lg rounded-3xl m-4"
               >
-                <h2 className="text-black mb-2 font-extrabold">
+                <h2 className=" mb-2 font-extrabold">
                   {oneNews.title}
                   
                 </h2>
